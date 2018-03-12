@@ -1,4 +1,6 @@
-## Welcome to GitHub Pages
+﻿## Welcome to GitHub Pages
+
++[Here](files/Zeynep Kavcıoğlu-Assignment 1-2.html)  
 
 You can use the [editor on GitHub](https://github.com/BOUN-ETM58D/pj-zeynepkavcioglu/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
