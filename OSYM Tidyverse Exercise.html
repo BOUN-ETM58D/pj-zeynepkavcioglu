@@ -120,3 +120,22 @@ $(document).ready(function () {
 <h4 class="date"><em>24 Nisan 2018</em></h4>
 
 </div>
+
+  title: "Tidy Analysis of OSYM Data"
+author: Name Surname
+date: April 9, 2018
+output:
+  html_document:
+    toc: false
+  pdf_document:
+    toc: false
+    toc_depth: 3
+---
+
+```{r,echo=FALSE,results="hide",message=FALSE}
+library(knitr)
+opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
+
+```
+
+This is an individual in-class exercise. At the end of the exercise, please upload html outputs to your Progress Journals. 
