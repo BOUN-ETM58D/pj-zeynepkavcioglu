@@ -121,21 +121,15 @@ $(document).ready(function () {
 
 </div>
 
-  title: "Tidy Analysis of OSYM Data"
-author: Name Surname
-date: April 9, 2018
-output:
-  html_document:
-    toc: false
-  pdf_document:
-    toc: false
-    toc_depth: 3
----
+ <pre class="r"><code>library(tidyverse)</code></pre>
+  
+  <p>1. Get the highest `max_score` programs from each `exam_type`.</p>
 
-```{r,echo=FALSE,results="hide",message=FALSE}
-library(knitr)
-opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
+```{r}
+  
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre class="r"><code>load("C:/Users/yagizbarali/Desktop/osym_data_2017_v2.RData")</code></pre>
+<pre class="r"><code>head(osym_data_2017)</code></pre>
+<pre class="r"><code>osym_data_2017 %>% group_by(exam_type) %>% summarise(max_of_max=max(max_score))</code></pre>
 
 ```
-
-This is an individual in-class exercise. At the end of the exercise, please upload html outputs to your Progress Journals. 
