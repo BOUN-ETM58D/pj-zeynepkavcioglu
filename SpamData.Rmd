@@ -1,0 +1,95 @@
+---
+title: "SpamData"
+author: "Zeynep Kavcýoðu"
+date: "29 Nisan 2018"
+output: html_document
+---
+
+Our assignment consists of buiding a CART model to detect spam mail using UCI’s Spambase data and
+analyze it. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(ggplot2)
+library(rpart)
+library(rpart.plot) 
+
+
+library(rattle)
+library(readr)
+library(tidyverse)
+
+require(rpart)
+require(rpart.plot)
+require(rattle)
+require(data.table)
+
+```
+
+First I load the spam data.
+
+```{r}
+setwd("C:/Users/yagizbarali/Desktop")
+load("spam_data.RData")
+head(spam_data)
+
+
+
+```
+
+Cart Model: (with training data)
+
+```{r}
+traindata<-subset(spam_data,train_test==0)
+testdata<-subset(spam_data,train_test==1)
+
+model <- rpart(spam_or_not ~ ., data=traindata,method = "class")
+
+fancyRpartPlot(model)
+
+```
+
+
+```{r}
+
+printcp(model)
+```
+
+Best Complexity Parameter:
+
+```{r}
+
+bestcp <- model$cptable[which.min(model$cptable[,"xerror"]),"CP"]
+pruned_tree <- prune(model, cp = bestcp)
+printcp(pruned_tree)
+
+```
+
+ý used pruned tree to produce confusion matrice:
+
+```{r}
+
+conf.matrix <- table(traindata$spam_or_not, predict(pruned_tree,type="class"))
+```
+
+Actual and Predicted Values:
+
+```{r}
+
+rownames(conf.matrix) <- paste("Actual Value", rownames(conf.matrix), sep = ":")
+
+colnames(conf.matrix) <- paste("Pred Value", colnames(conf.matrix), sep = ":")
+
+print(conf.matrix)
+
+```
+
+References:
+https://www.edureka.co/blog/implementation-of-decision-tree
+
+https://mef-bda503.github.io/pj-ferayece/files/Assignment3_SpamDataAnalysis.html
+
+https://rstudio-pubs-static.s3.amazonaws.com/27179_e64f0de316fc4f169d6ca300f18ee2aa.html
+
