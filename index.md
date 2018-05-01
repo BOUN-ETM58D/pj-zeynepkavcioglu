@@ -6,3 +6,6 @@
 
 # Spam Data Assignment 
 + My Spam Data Assignment is [Here](SpamData.html)
+
+# Diamond Assignment
++ My Diamond Assignment is [Here](Diamond.html)
