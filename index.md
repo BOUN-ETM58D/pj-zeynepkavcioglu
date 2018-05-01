@@ -11,4 +11,4 @@
 + My Diamond Assignment is [Here](Diamond.html)
 
 # Esoph and Young People Survey Data Assignment
-+ My Esoph and Young People Survey Data Assignment is [Here](https://github.com/BOUN-ETM58D/pj-zeynepkavcioglu/blob/master/Esoph_and_Young_People_Survey_Data.html)
++ My Esoph and Young People Survey Data Assignment is [Here](Esoph_and_Young_People_Survey_Data.html)
