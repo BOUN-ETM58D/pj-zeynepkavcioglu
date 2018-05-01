@@ -1,0 +1,92 @@
+---
+title: "Diamond"
+author: "Zeynep Kavcýoðu"
+date: "25 Nisan 2018"
+output: html_document
+---
+
+Our assignment consists of finding the price of a diamond given its properties. I used the diamonds
+data set in ggplot2 package (which is inside tidyverse).
+
+```{r}
+set.seed(503)
+
+```
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(rpart)
+library(rpart.plot)
+library(ggplot2)
+library(sqldf)
+```
+
+```{r}
+data(diamonds)
+diamonds
+
+sqldf("select max(price),min(price),avg(price) from diamonds")
+```
+
+I added row number to the data set. 80% of my data is train data and the others are test data:
+
+```{r}
+
+diamonds2<-diamonds %>% group_by(carat,cut,color,clarity,depth,table,price,x,y,z) %>% mutate(item_id = row_number())
+
+diamonds2<-diamonds  %>% mutate(item_id = row_number())
+
+n = nrow(diamonds2)
+
+train_id = sample(1:n, size = round(0.8*n), replace=FALSE)
+
+train_data = diamonds2[train_id ,]
+test_data = diamonds2[-train_id ,]
+
+```
+
+Using anova method and train data I created my model:
+
+```{r}
+
+model1 <- rpart(price ~ ., data=train_data[1:10], method ="anova")
+
+```
+
+
+```{r}
+
+rpart.plot(model1, type=3, digits=3, fallen.leaves = TRUE)
+
+
+```
+
+After building a model on train data set and I predicted on test:
+
+```{r}
+predicted_test_data <- predict(model1,test_data)
+
+print(head(predicted_test_data))
+
+
+Mean_Absolute_Error <- function(act, pred) {mean(abs(act - pred))}
+Mean_Absolute_Error(test_data$price, predicted_test_data)
+
+
+```
+
+
+References
+
+https://stackoverflow.com/questions/11996135/create-a-sequential-number-counter-for-rows-within-each-group-of-a-dataframe
+
+
+https://mef-bda503.github.io/pj-nesipoglud/files/Diamonds.html
+
+
+
+
+
+
+
+
