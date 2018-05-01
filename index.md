@@ -5,7 +5,7 @@
 + My OSYM Tidyverse Exercise is [Here](osym_data_analysis_template.html)
 
 # Spam Data Assignment 
-+ My Spam Data Assignment is [Here](SpamData.html)
++ My Spam Data Assignment is [Link](https://github.com/BOUN-ETM58D/pj-zeynepkavcioglu/blob/master/SpamData.html)
 
 # Diamond Assignment
 + My Diamond Assignment is [Here](Diamond.html)
