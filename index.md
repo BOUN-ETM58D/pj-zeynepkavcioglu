@@ -1,11 +1,11 @@
 # Assignment 1 
-+ My Assignment 1 is [Here](https://github.com/BOUN-ETM58D/pj-zeynepkavcioglu/blob/master/Zeynep%20Kavc%C4%B1o%C4%9Flu-Assignment%201-2.html)
++ My Assignment 1 is [Here](Zeynep Kavcıoğlu-Assignment 1-2.html)
 
 # OSYM Tidyverse Exercise
 + My OSYM Tidyverse Exercise is [Here](osym_data_analysis_template.html)
 
 # Spam Data Assignment 
-+ My Spam Data Assignment is [Here](https://github.com/BOUN-ETM58D/pj-zeynepkavcioglu/blob/master/SpamData.html)
++ My Spam Data Assignment is [Here](SpamData.html)
 
 # Diamond Assignment
 + My Diamond Assignment is [Here](Diamond.html)
